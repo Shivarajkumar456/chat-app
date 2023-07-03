@@ -42,7 +42,7 @@ const Register = () => {
                             photoURL:downloadURL
                         });
                         await setDoc(doc(db, "userChats", res.user.uid),{});
-                        navigate('/')
+                        navigate('/home');
                     }catch(err){
                         console.log(err)
                         setErr(true)
@@ -74,7 +74,7 @@ const Register = () => {
                     <button>Sign Up</button>
                     {err && <p>Something went wrong...</p>}
                 </form>
-                <p>do you have an account? <Link to="/login">Login</Link></p>
+                <p>do you have an account? <Link to="/">Login</Link></p>
             </div>
         </div>
     )

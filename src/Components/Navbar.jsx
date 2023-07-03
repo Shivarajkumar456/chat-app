@@ -1,18 +1,21 @@
 import { signOut } from "firebase/auth";
-import React from "react";
+import React, { useContext } from "react";
 import { auth } from "../Firebase";
 import {  useNavigate } from "react-router-dom";
+import AuthContext from "../Context/Authcontext";
+
 
 const Navbar = () => {
     const navigate = useNavigate();
+    const {curUser} = useContext(AuthContext)
     return(
         <div className="navbar">
             <span className="logo">lama chat</span>
             <div className="user">
-                <img src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
-                <span>Shiva</span>
+                <img src={curUser.photoURL} alt="" />
+                <span>{curUser.displayName}</span>
                 <button onClick={()=>{signOut(auth);
-                navigate('/login')}}>Logout</button>
+                navigate('/')}}>Logout</button>
             </div>
         </div>
     )
