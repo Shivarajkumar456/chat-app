@@ -225,6 +225,11 @@
                 height: calc(100% - 160px);
                 overflow: scroll;
 
+                .date-heading {
+                    text-align: center;
+                    padding: 10px;
+                  }
+                  
                 .message{
                     display: flex;
                     gap: 20px;
