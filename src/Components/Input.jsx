@@ -3,7 +3,7 @@ import Attach from '../img/attach.png';
 import Img from '../img/img.png';
 import AuthContext from "../Context/Authcontext";
 import ChatContext from "../Context/ChatContext";
-import { Timestamp, arrayUnion, doc, serverTimestamp, updateDoc } from "firebase/firestore";
+import { Timestamp, arrayUnion, doc, increment, serverTimestamp, updateDoc } from "firebase/firestore";
 import { db, storage } from "../Firebase";
 import {v4 as uuid} from 'uuid';
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
@@ -58,6 +58,7 @@ const Input = () => {
             [data.chatId + ".date"] : serverTimestamp()
         });
         await updateDoc(doc(db,"userChats",data.user.uid), {
+            [data.chatId+".unreadCount"]: increment(1),
             [data.chatId+".lastMessage"] : {text},
             [data.chatId + ".date"] : serverTimestamp()
         });
@@ -67,7 +68,7 @@ const Input = () => {
         setText("");
         setImg(null);
     }
-
+    
     return(
         <div className="input">
             <input type="text" placeholder="type something..." value={text} onChange={(e)=>setText(e.target.value)}/>

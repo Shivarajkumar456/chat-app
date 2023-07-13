@@ -22,7 +22,7 @@
 .formContainer{
     display: flex;
     height: 100vh;
-    background-color: #a7bcff;
+    background-color: #a7ffda;
     align-items: center;
     justify-content: center;
 
@@ -91,7 +91,7 @@
 .home{
     display: flex;
     height: 100vh;
-    background-color: #a7bcff;
+    background-color: rgb(152, 252, 252);
     align-items: center;
     justify-content: center;
 
@@ -108,7 +108,7 @@
 
         .sidebar{
             flex: 1;
-            background-color: #3e3c61;
+            background-color: #77e2e2;
             position: relative;
 
             .navbar{
@@ -117,8 +117,8 @@
                 align-items: center;
                 height: 50px;
                 padding: 10px;
-                background-color: #28273b;
-                color: #ddddf7;
+                background-color: teal;
+                color: white;
 
                 .logo{
                     font-weight: bold;
@@ -140,7 +140,7 @@
                         object-fit: cover;
                     }
                     button{
-                        background-color: #5d5b8d;
+                        background-color: rgb(0, 41, 41);
                         color: #ddddf7;
                         padding: 6px;
                         font-size: 10px;
@@ -161,10 +161,10 @@
                     input{
                         background-color: transparent;
                         border: none;
-                        color: white;
+                        color: black;
                         outline: none;
                         &::placeholder{
-                            color: lightgray;
+                            color: gray;
                         }
                     }
                 }
@@ -174,10 +174,11 @@
                 align-items: center;
                 gap: 10px;
                 padding: 10px;
-                color: white;
+                color: black;
 
                 &:hover{
-                    background-color: #28273b;
+                    background-color: teal;
+                    cursor: pointer;
                 }
                 img{
                     width: 50px;
@@ -186,13 +187,30 @@
                     object-fit: cover;
                 }
                 .userChatInfo{
-                    span{
-                        font-size: 18px;
-                        font-weight: 500;
+                    width: 60%;
+                   .userNameCount{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-content: space-between;
+                    font-size: 18px;
+                    font-weight: 500;
+
+                    #ureadCount{
+                        background: #00a884;
+                        max-width: 100%;
+                        padding: 4px;
+                        display: flex;
+                        justify-content: center;
+                        align-content: center;
+                        border-radius: 50%;
+                        font-size: 12px;
+                        color: black;
                     }
+                   }
                     p{
                         font-size: 14px;
-                        color: lightgray;
+                        color: gray;
                     }
                 }
             }
@@ -201,7 +219,7 @@
             flex: 2;
             .chatInfo {
                 height: 50px;
-                background-color: #5d5b8d;
+                background-color: teal;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -220,7 +238,7 @@
             }
 
             .messages{
-                background-color: #ddddf7;
+                background-color: #cef1f1;
                 padding: 10px;
                 height: calc(100% - 160px);
                 overflow: scroll;
@@ -244,6 +262,8 @@
                             border-radius: 50%;
                             width: 40px;
                             height: 40px;
+                        } span{
+                            font-size: 0.7rem;
                         }
                     }
                     .messageContent{
@@ -268,8 +288,8 @@
                         .messageContent{
                             align-items: flex-end;
                             p{
-                                background-color: #8da4f1;
-                                color: white;
+                                background-color: #77e2e2;
+                                color: black;
                                 border-radius: 10px 0 10px 10px;
                             }
                         }
