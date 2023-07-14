@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { collection, getDocs, query, setDoc, where, doc, updateDoc, serverTimestamp, getDoc } from "firebase/firestore";
+import { collection, getDocs, query, setDoc, where, doc, updateDoc, serverTimestamp, getDoc, orderBy } from "firebase/firestore";
 import { db } from "../Firebase";
 import AuthContext from "../Context/Authcontext";
 
@@ -11,7 +11,9 @@ const Search = () => {
     const { curUser } = useContext(AuthContext)
 
     const searchHandle = async () => {
-        const q = query(collection(db, "users"), where("displayName", "==", userName));
+        const queryName = userName.toLowerCase();
+        const q = query(collection(db, "users"), 
+        where("displayName", "in", [queryName, queryName.replace(/^\w/, c => c.toUpperCase())]));
         try {
             const querySnapShot = await getDocs(q);
             querySnapShot.forEach(doc => {

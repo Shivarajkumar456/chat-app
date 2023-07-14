@@ -1,5 +1,6 @@
 import { signOut } from "firebase/auth";
 import React, { useContext } from "react";
+import logo  from '../img/logo4.png';
 import { auth } from "../Firebase";
 import {  useNavigate } from "react-router-dom";
 import AuthContext from "../Context/Authcontext";
@@ -14,7 +15,7 @@ const Navbar = () => {
 
     return(
         <div className="navbar">
-            <span className="logo">let's chat</span>
+            <img src={logo} alt="logo" id="logo"/>
             <div className="user">
                 <img src={curUser.photoURL} alt="" onClick={changeDp}/>
                 <span>{curUser.displayName}</span>

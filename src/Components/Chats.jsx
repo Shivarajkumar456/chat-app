@@ -38,7 +38,7 @@ const Chats = () => {
                         <div>{chat[1].userInfo.displayName}</div>
                         {chat[1].unreadCount > 0 ? <div id="ureadCount">{chat[1].unreadCount}</div>: ''}
                     </div>
-                    <p>{chat[1].lastMessage?.text}</p>
+                    <p>{chat[1].lastMessage?.text.length > 12 ? `${chat[1].lastMessage?.text.substring(0, 10)}...` : chat[1].lastMessage?.text}</p>
                 </div>
             </div>
             )}

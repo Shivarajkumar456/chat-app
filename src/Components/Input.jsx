@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
-import Attach from '../img/attach.png';
 import Img from '../img/img.png';
+import Attach from '../img/attach.png'
 import AuthContext from "../Context/Authcontext";
 import ChatContext from "../Context/ChatContext";
 import { Timestamp, arrayUnion, doc, increment, serverTimestamp, updateDoc } from "firebase/firestore";
@@ -18,14 +18,10 @@ const Input = () => {
         try{
         if(img){
             const storageRef = ref(storage, uuid());
-            const uploadTask = await uploadBytesResumable(storageRef, img);
-            uploadTask.on(
-                (error)=>{
-
-                },
-                ()=>{
-                    getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-                        try{
+            await uploadBytesResumable(storageRef, img)
+            .then(() => {
+                getDownloadURL(storageRef).then(async (downloadURL) => {
+                  try {
                             await updateDoc(doc(db,'chats', data.chatId), {
                                 messages:arrayUnion({
                                     id:uuid(),
@@ -71,13 +67,13 @@ const Input = () => {
     
     return(
         <div className="input">
-            <input type="text" placeholder="type something..." value={text} onChange={(e)=>setText(e.target.value)}/>
+            <textarea placeholder="type something..." value={text} onChange={(e)=>setText(e.target.value)}/>
             <div className="send">
-                <img src={Attach} alt="" />
                 <input type="file" id="file" style={{display:"none"}} onChange={e=>setImg(e.target.files[0])}/>
                 <label htmlFor="file">
                     <img src={Img} alt="" />
                 </label>
+                <img src={Attach} alt="" />
                 <button onClick={submitHandle}>Send</button>
             </div>
         </div>

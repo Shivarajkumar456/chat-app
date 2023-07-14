@@ -15,11 +15,14 @@ const Message = (props) => {
         <div ref={ref} className={`message ${props.message.senderId === curUser.uid && "owner"}`}>
             <div className="messageInfo">
                 <img src={props.message.senderId === curUser.uid? curUser.photoURL : data.user.photoURL} alt="" />
-                <span>{props.time}</span>
+                <span id="mainTime">{props.time}</span>
             </div>
             <div className="messageContent">
                 <p>{props.message.text}</p>
                 {props.message.img && <img src={props.message.img} alt="" />}
+                <span id="mobileTime">{props.time}</span>
+                
+                
             </div>
         </div>
     )
