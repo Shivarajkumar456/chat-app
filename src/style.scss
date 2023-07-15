@@ -41,7 +41,7 @@
           }
       
           .title {
-            color: #5d5b8d;
+            color: #2f976c;
             font-size: 18px;
             font-weight: bold;
           }
@@ -54,7 +54,7 @@
                 border: none;
                 padding: 15px;
                 width: 250px;
-                border-bottom: 1px solid #a7bcff;
+                border-bottom: 1px solid #a7ffda;
                 &::placeholder{
                     color: rgb(175, 175, 175);
                 }
@@ -103,12 +103,19 @@
         overflow: hidden;
         @include tablet {
             width: 90%;
-           }
+        }
+        @include mobile {
+            width: 90%;
+        }
 
         .sidebar{
             flex: 1;
             background-color: #77e2e2;
             position: relative;
+
+            @include tablet {
+                width: 35%;
+               }
 
             .navbar{
                 display: flex;
@@ -127,9 +134,7 @@
                     cursor: pointer;
 
                     @include mobile{
-                        width: 30px;
-                        height: 30px;
-                        border-radius: 20%;
+                       display: none;
                     }
                 }
 
@@ -192,6 +197,10 @@
                     height: 50px;
                     border-radius: 50%;
                     object-fit: cover;
+                    @include mobile {
+                        width:25px;
+                        height: 25px;
+                       }
                 }
                 .userChatInfo{
                     width: 60%;
@@ -202,6 +211,11 @@
                     align-content: space-between;
                     font-size: 18px;
                     font-weight: 500;
+                    
+                    @include mobile {
+                        font-size: 14px;
+                        font-weight: 600;
+                    }
 
                     #ureadCount{
                         background: #00a884;
@@ -218,6 +232,9 @@
                     p{
                         font-size: 14px;
                         color: gray;
+                        @include mobile{
+                            font-size: 10px;
+                        }
                     }
                 }
             }
