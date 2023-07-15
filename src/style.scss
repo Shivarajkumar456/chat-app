@@ -36,15 +36,14 @@
         align-items: center;
 
         .logo {
-            color: #5d5b8d;
-            font-weight: bold;
-            font-size: 24px;
-      
+           width: 70px;
+           height: 60px;
           }
       
           .title {
             color: #5d5b8d;
-            font-size: 12px;
+            font-size: 18px;
+            font-weight: bold;
           }
           form{
             display: flex;

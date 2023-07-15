@@ -4,7 +4,8 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore"; 
 import { auth, storage,db } from '../Firebase';
 import { useNavigate, Link } from 'react-router-dom';
-import Add from '../img/addAvatar.png'
+import Add from '../img/addAvatar.png';
+import logo from '../img/logo4.png';
 
 const Register = () => {
     const [err, setErr] = useState(false);
@@ -60,7 +61,7 @@ const Register = () => {
     return (
         <div className="formContainer">
             <div className="formWrapper">
-                <span className="logo">Logo</span>
+                <img src={logo} alt='logo' className='logo'/>
                 <span className="title">Register</span>
                 <form onSubmit={handleSubmit}>
                     <input type="text" placeholder="User Name" ref={userNameRef} />

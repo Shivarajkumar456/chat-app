@@ -2,6 +2,7 @@ import React, {useRef, useState} from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../Firebase';
+import logo from '../img/logo4.png';
 
 const Login = ()=>{
     const [err, setErr] = useState(false);
@@ -25,8 +26,8 @@ const Login = ()=>{
     return (
         <div className="formContainer">
             <div  className="formWrapper">
-                <span className="logo">Logo</span>
-                <span className="title">Register</span>
+                <img src={logo} alt='logo' className='logo'/>
+                <span className="title">Sign In</span>
                 <form onSubmit={handleSubmit}>
                     <input type="email" placeholder="email" ref={emailRef} />
                     <input type="password" placeholder="password" ref={passwordRef} />
