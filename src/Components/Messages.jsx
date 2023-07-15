@@ -35,8 +35,9 @@ const Messages = ()=>{
       const groupedMessages = groupMessagesByDate(messages);
 
       const formatDate = (dateString) => {
+        const [day, month, year] = dateString.split('/');
         const options = { month: 'short', day: 'numeric', year: '2-digit' };
-        const date = new Date(dateString);
+        const date = new Date(`${month}/${day}/${year}`);
         return date.toLocaleDateString(undefined, options);
       };
 
