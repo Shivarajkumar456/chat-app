@@ -23,7 +23,8 @@ const Messages = ()=>{
         messages.forEach((message) => {
           const timestamp = message.date;
           const date = timestamp.toDate(); // Convert to JavaScript Date object
-          const dateString = date.toLocaleDateString(); // Get the date as a string
+          const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+          const dateString = date.toLocaleDateString('en-US', options); // Get the date as a string
           if (!groups[dateString]) {
             groups[dateString] = [];
           }
@@ -35,10 +36,17 @@ const Messages = ()=>{
       const groupedMessages = groupMessagesByDate(messages);
 
       const formatDate = (dateString) => {
-        const [day, month, year] = dateString.split('/');
-        const options = { month: 'short', day: 'numeric', year: '2-digit' };
-        const date = new Date(`${month}/${day}/${year}`);
-        return date.toLocaleDateString(undefined, options);
+        const months = [
+          "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+          "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+        ];
+        console.log(dateString)
+        console.log(dateString.split('/'))
+        const [month, day, year] = dateString.split('/');
+        const formattedMonth = months[month - 1];
+        const formattedYear = year.slice(-2);
+      
+        return `${formattedMonth} ${day}, ${formattedYear}`;
       };
 
     return(
